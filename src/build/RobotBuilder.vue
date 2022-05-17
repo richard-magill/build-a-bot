@@ -12,7 +12,7 @@
           </tbody>
         </table>
 
-        <form action= process.env.VUE_APP_NODE_URL method="POST">
+        <form :action= nodeUrl.url method="POST">
           <div class="cost">
             <div v-for="robot, index in cart" :key="index">
               <input type="text" id="price-input" v-model= robot.price name="price" hidden/>
@@ -88,6 +88,11 @@ export default {
     };
   },
   computed: {
+    nodeUrl() {
+      return {
+        url: process.env.VUE_APP_NODE_URL,
+      };
+    },
     selectedRobot() {
       return {
         head: availableParts.heads[this.selectedHeadIndex],
@@ -108,8 +113,8 @@ export default {
         + robot.head.cost
         + robot.base.cost
         + robot.torso.cost;
-      const { price } = this.selectedRobot;
-      console.log(price);
+      // const { price } = this.selectedRobot;
+      console.log(process.env.VUE_APP_NODE_URL);
       this.cart.push({ ...robot, cost });
     },
     selectNextHead() {
