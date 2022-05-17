@@ -1,7 +1,10 @@
+/* eslint-disable linebreak-style */
 // This is a public sample test API key.
 // Don’t submit any personally identifiable information in requests made with this key.
+require('dotenv').config();
+
 const stripe = require('stripe')(
-  'sk_test_51KwqevADBAdluDju98Ed0TkGw2KsUwEFlNzk6zT1kbC8KfRCF4Hf8PpScYGQihvIIs79qF0FIzWqI1UGFo34rb3200cLfHY9Ey',
+  process.env.VUE_APP_STRIPE_KEY,
 );
 
 const express = require('express');
@@ -23,8 +26,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded());
 app.use(express.json());
 
-const SUCCESS = 'http://localhost:8080/success';
-const FAIL = 'http://localhost:8080/fail';
+const SUCCESS = process.env.VUE_APP_SUCCESS_URL;
+const FAIL = process.env.VUE_APP_FAIL_URL;
 
 app.post('/create-checkout-session', async (req, res) => {
   let mapped = [];

@@ -12,7 +12,7 @@
           </tbody>
         </table>
 
-        <form action="http://localhost:4242/create-checkout-session" method="POST">
+        <form action= process.env.VUE_APP_NODE_URL method="POST">
           <div class="cost">
             <div v-for="robot, index in cart" :key="index">
               <input type="text" id="price-input" v-model= robot.price name="price" hidden/>
