@@ -47,5 +47,3 @@ app.post('/create-checkout-session', async (req, res) => {
 const port = process.env.PORT || 8080;
 app.listen(port);
 console.log(`app is listening on port: ${port}`);
-
-app.listen(4242, () => console.log('Running on port 4242'));
