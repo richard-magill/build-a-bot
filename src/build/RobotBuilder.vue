@@ -12,7 +12,7 @@
           </tbody>
         </table>
 
-        <form :action= nodeUrl.url method="POST">
+        <form  v-show=showCheckout :action= nodeUrl.url method="POST">
           <div class="cost">
             <div v-for="robot, index in cart" :key="index">
               <input type="text" id="price-input" v-model= robot.price name="price" hidden/>
@@ -77,6 +77,7 @@ export default {
   name: 'RobotBuilder',
   data() {
     return {
+
       availableParts,
       cart: [],
       selectedHeadIndex: 0,
@@ -92,6 +93,9 @@ export default {
       return {
         url: process.env.VUE_APP_NODE_URL,
       };
+    },
+    showCheckout() {
+      return (this.cart.length > 0);
     },
     selectedRobot() {
       return {
