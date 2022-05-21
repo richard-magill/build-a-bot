@@ -6,6 +6,8 @@ Don't enter real credit card number here (this is just a TEST Stripe account, it
 
 App is also deployed in Heroku, you can see it running at https://magill-a-bot.herokuapp.com/
 
+IDE: VSCode
+
 ## Project setup
 ```
 npm install
